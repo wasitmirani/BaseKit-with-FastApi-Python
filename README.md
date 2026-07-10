@@ -4,9 +4,6 @@ Advanced, production-ready FastAPI starter with modular architecture, JWT authen
 
 ## Project Structure
 
-## Author 
-
-
 ```
 app/
 ├── main.py              # Application entry point
