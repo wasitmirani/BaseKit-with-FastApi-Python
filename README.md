@@ -4,6 +4,9 @@ Advanced, production-ready FastAPI starter with modular architecture, JWT authen
 
 ## Project Structure
 
+## Author 
+
+
 ```
 app/
 ├── main.py              # Application entry point
@@ -90,7 +93,13 @@ pytest
 ```bash
 celery -A app.workers.celery_app worker --loglevel=info
 ```
+## 👤 Author
 
-## License
+Wasit Mirani - [GitHub Profile](https://github.com/wasitmirani)
 
-MIT
+
+## 📄 License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
