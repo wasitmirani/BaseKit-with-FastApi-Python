@@ -6,9 +6,8 @@ from sqlalchemy import engine_from_config, pool
 from app.core.config import settings
 from app.db.base import Base
 
-# Import all models for autogenerate
-from app.modules.auth.model import RefreshToken  # noqa: F401
-from app.modules.users.model import User  # noqa: F401
+# Import models here for Alembic autogenerate, e.g.:
+# from app.modules.example.model import Example  # noqa: F401
 
 config = context.config
 

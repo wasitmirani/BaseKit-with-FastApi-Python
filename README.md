@@ -1,6 +1,6 @@
 # BaseKit with FastAPI
 
-Advanced, production-ready FastAPI starter with modular architecture, JWT authentication, SQLAlchemy ORM, Celery workers, Redis caching, WebSockets, and Alembic migrations.
+Advanced, production-ready FastAPI starter with modular architecture, SQLAlchemy ORM, Celery workers, Redis caching, WebSockets, and Alembic migrations.
 
 ## Project Structure
 
@@ -9,7 +9,7 @@ app/
 ├── main.py              # Application entry point
 ├── core/                # Config, security, middleware, logging
 ├── api/                 # API router aggregation (v1)
-├── modules/             # Domain modules (auth, users)
+├── modules/             # Domain modules (add your own)
 ├── db/                  # Database base, session, migrations
 ├── common/              # Shared utilities, responses, pagination
 ├── services/            # External services (email, redis, storage, ai)
@@ -63,18 +63,15 @@ uvicorn app.main:app --reload
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| POST | `/api/v1/auth/register` | Register a new user |
-| POST | `/api/v1/auth/login` | Login and get tokens |
-| POST | `/api/v1/auth/refresh` | Refresh access token |
-| GET | `/api/v1/users/me` | Get current user profile |
+| GET | `/health` | Health check |
 | WS | `/ws/{room}` | WebSocket room |
 
 ## Architecture
 
-- **Layered modules**: Each domain has `router → service → repository → model`
-- **Dependency injection**: FastAPI `Depends()` for DB sessions and auth
+- **Layered modules**: Add domains under `app/modules/` with `router → service → repository → model`
+- **Dependency injection**: FastAPI `Depends()` for DB sessions and shared services
 - **Standardized responses**: `{ success, message, data }` envelope
-- **JWT auth**: Access + refresh tokens with bcrypt password hashing
+- **Security utilities**: JWT and password hashing in `app/core/security.py`
 - **Background jobs**: Celery workers for email and notifications
 
 ## Running Tests
