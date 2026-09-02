@@ -9,7 +9,7 @@ app/
 ├── main.py              # Application entry point
 ├── core/                # Config, security, middleware, logging
 ├── api/                 # API router aggregation (v1)
-├── modules/             # Domain modules (auth, users, orders, products)
+├── modules/             # Domain modules (auth, users)
 ├── db/                  # Database base, session, migrations
 ├── common/              # Shared utilities, responses, pagination
 ├── services/            # External services (email, redis, storage, ai)
@@ -67,8 +67,6 @@ uvicorn app.main:app --reload
 | POST | `/api/v1/auth/login` | Login and get tokens |
 | POST | `/api/v1/auth/refresh` | Refresh access token |
 | GET | `/api/v1/users/me` | Get current user profile |
-| GET | `/api/v1/products/` | List products |
-| POST | `/api/v1/orders/` | Create an order |
 | WS | `/ws/{room}` | WebSocket room |
 
 ## Architecture

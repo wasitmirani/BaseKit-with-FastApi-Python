@@ -9,8 +9,6 @@ from app.db.base import Base
 # Import all models for autogenerate
 from app.modules.auth.model import RefreshToken  # noqa: F401
 from app.modules.users.model import User  # noqa: F401
-from app.modules.products.model import Product  # noqa: F401
-from app.modules.orders.model import Order, OrderItem  # noqa: F401
 
 config = context.config
 

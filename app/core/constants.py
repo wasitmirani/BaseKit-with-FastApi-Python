@@ -5,9 +5,3 @@ TOKEN_TYPE_BEARER = "bearer"
 
 ROLE_USER = "user"
 ROLE_ADMIN = "admin"
-
-ORDER_STATUS_PENDING = "pending"
-ORDER_STATUS_CONFIRMED = "confirmed"
-ORDER_STATUS_SHIPPED = "shipped"
-ORDER_STATUS_DELIVERED = "delivered"
-ORDER_STATUS_CANCELLED = "cancelled"
