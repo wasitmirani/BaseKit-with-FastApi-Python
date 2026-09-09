@@ -2,25 +2,59 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
 *.egg-info/
 .eggs/
 dist/
 build/
 venv/
 .venv/
+env/
+ENV/
 
 # Environment
 .env
+.env.*
+!.env.example
 
-# IDE
+# IDE / OS
 .idea/
 .vscode/
 *.swp
+*.swo
+.DS_Store
+Thumbs.db
+Desktop.ini
 
-# Testing
+# Testing / coverage / linters
 .pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.tox/
 .coverage
+.coverage.*
+coverage.xml
 htmlcov/
+.cache/
+.hypothesis/
 
-# Uploads
+# Logs
+*.log
+logs/
+app/storage/logs/*
+!app/storage/logs/.gitignore
+
+# Runtime storage
+app/storage/app/private/*
+!app/storage/app/private/.gitignore
+app/storage/app/public/*
+!app/storage/app/public/.gitignore
 app/static/uploads/
+
+# Local databases
+*.db
+*.sqlite3
+
+# Celery
+celerybeat-schedule
+celerybeat.pid
