@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request, status
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import JSONResponse
 
-from app.common.exceptions import AppException
+from app.core.exceptions import AppException
 from app.common.responses import error_response
 
 
