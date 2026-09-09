@@ -9,7 +9,7 @@ from app.core.config import settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import setup_logging
 from app.core.middleware import register_middleware
-from app.storage.configs.db.init_db import init_db
+from app.core.configs.db.init_db import init_db
 from app.websocket.routes import router as websocket_router
 
 
