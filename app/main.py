@@ -20,7 +20,6 @@ async def lifespan(app: FastAPI):
         init_db()
     yield
 
-
 def create_app() -> FastAPI:
     app = FastAPI(
         title=settings.PROJECT_NAME,
@@ -38,7 +37,6 @@ def create_app() -> FastAPI:
         allow_methods=["*"],
         allow_headers=["*"],
     )
-
     register_middleware(app)
     register_exception_handlers(app)
 
@@ -52,6 +50,5 @@ def create_app() -> FastAPI:
         return {"status": "ok", "version": settings.VERSION}
 
     return app
-
 
 app = create_app()
