@@ -12,7 +12,7 @@ class StorageService:
         if settings.STORAGE_BUCKET:
             # Integrate with S3, GCS, Azure Blob, etc.
             return f"s3://{settings.STORAGE_BUCKET}/{destination}"
-        local_path = Path("app/static/uploads") / destination
+        local_path = Path("app/public/uploads") / destination
         local_path.parent.mkdir(parents=True, exist_ok=True)
         local_path.write_bytes(file_path.read_bytes())
         return str(local_path)
