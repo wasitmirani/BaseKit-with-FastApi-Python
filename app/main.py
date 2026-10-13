@@ -1,16 +1,14 @@
 from contextlib import asynccontextmanager
-
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-
-from app.routes.api.api_router import api_router
+from app.routes.routes import router as api_routes
 from app.core.config import settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import setup_logging
 from app.core.middleware import register_middleware
 from app.core.configs.db.init_db import init_db
-from app.websocket.routes import router as websocket_router
+from app.websocket.routes import router as websocket_routes
 
 
 @asynccontextmanager
@@ -40,8 +38,8 @@ def create_app() -> FastAPI:
     register_middleware(app)
     register_exception_handlers(app)
 
-    app.include_router(api_router, prefix=settings.API_V1_PREFIX)
-    app.include_router(websocket_router)
+    app.include_router(api_routes, prefix=settings.API_V1_PREFIX)
+    app.include_router(websocket_routes)
 
     app.mount("/static", StaticFiles(directory="app/public"), name="static")
 
