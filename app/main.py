@@ -1,21 +1,22 @@
 from contextlib import asynccontextmanager
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from app.routes.routes import router as api_routes
+
 from app.core.config import settings
 from app.core.exceptions import register_exception_handlers
 from app.core.logging import setup_logging
 from app.core.middleware import register_middleware
-from app.core.configs.db.init_db import init_db
+from app.routes.routes import router as api_routes
 from app.websocket.routes import router as websocket_routes
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    # The shared database schema is owned by backend-nestjs migrations;
+    # this service must never create or alter tables on startup.
     setup_logging()
-    if settings.ENVIRONMENT != "test":
-        init_db()
     yield
 
 def create_app() -> FastAPI:
